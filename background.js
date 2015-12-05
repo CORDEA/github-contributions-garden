@@ -19,16 +19,14 @@
 
 var constants = {};
 
-constants.GITHUB_PROFILE_URL = "https:\/\/github.com\/[A-Z]+";
+constants.GITHUB_PROFILE_URL = "^https://github.com/\\w+$";
 
 var background = {};
 
 background.checkForValidUrl_ = function () {
     chrome.tabs.onUpdated.addListener( function(tabId, changeInfo, tab) {
         var regex = new RegExp(constants.GITHUB_PROFILE_URL);
-        console.log(tab.url);
         if (regex.test(tab.url)) {
-            console.log("enter");
             chrome.tabs.sendMessage(tab.id, {method: "background.validUrl"});
         }
     });
