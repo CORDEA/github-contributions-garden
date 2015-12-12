@@ -1,6 +1,6 @@
 {
     "name": "GitHub Contributions Garden",
-    "version": "1.0",
+    "version": "1.0.1",
     "description": "Change the gradient color of GitHub Contributions.",
     "background": {
         "scripts": ["constants.js", "background.js"],

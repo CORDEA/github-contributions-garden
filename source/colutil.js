@@ -53,11 +53,11 @@ colutil.getGithubGradation = function(startRgb) {
     return rev;
 }
 
-colutil.componentToHex = function(c) {
-    var hex = c.toString(16);
-    return hex.length == 1 ? "0" + hex : hex;
+colutil.rgbToHex = function(rgb) {
+    return "#" + colutil.decToHex(rgb.r) + colutil.decToHex(rgb.g) + colutil.decToHex(rgb.b);
 }
 
-colutil.rgbToHex = function(rgb) {
-    return "#" + colutil.componentToHex(rgb.r) + colutil.componentToHex(rgb.g) + colutil.componentToHex(rgb.b);
+colutil.decToHex = function(dec) {
+    var hex = dec.toString(16);
+    return hex.length === 1 ? "0" + hex : hex;
 }
