@@ -80,9 +80,18 @@ content.searchHtml_ = function(bases, grads) {
 
 content.initialize_ = function () {
     var bases = content.checkColor_();
-    var grads = colutil.getGithubGradation(new colutil.rgb(17, 85, 204));
-    content.changeLegendColor_(grads);
-    content.searchHtml_(bases, grads);
+    var c = constants;
+
+    chrome.storage.sync.get(c.getDefaultColor()
+            , function(items) {
+                var grads = colutil.getGithubGradation(new colutil.rgb(
+                            items[c.red_key],
+                            items[c.green_key],
+                            items[c.blue_key]
+                            ));
+                content.changeLegendColor_(grads);
+                content.searchHtml_(bases, grads);
+            });
 }
 
 content.arrayIndexOf_ = function (value, array) {

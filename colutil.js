@@ -20,9 +20,9 @@
 var colutil = {};
 
 colutil.rgb = function(r, g, b) {
-    this.r = r;
-    this.g = g;
-    this.b = b;
+    this.r = parseInt(r);
+    this.g = parseInt(g);
+    this.b = parseInt(b);
 }
 
 colutil.getGithubGradation = function(startRgb) {

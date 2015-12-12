@@ -1,7 +1,7 @@
 {
-    "name": "GitHub Contributions Gradation",
-    "version": "0.1",
-    "description": "",
+    "name": "GitHub Contributions Garden",
+    "version": "1.0",
+    "description": "Change the gradient color of GitHub Contributions.",
     "background": {
         "scripts": ["background.js"],
         "persistent": false
@@ -10,13 +10,13 @@
         "matches": [
             "https://github.com/*"
         ],
-        "js":      ["colutil.js", "content.js"],
+        "js":      ["constants.js", "colutil.js", "content.js"],
         "run_at": "document_idle"
     }],
+    "options_page": "options.html",
     "permissions" : [
         "tabs",
-        "identity",
-        "activeTab",
+        "storage",
         "https://github.com/*"
     ],
     "manifest_version": 2
