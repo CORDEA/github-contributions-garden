@@ -41,7 +41,7 @@ colutil.getGithubGradation = function(startRgb) {
                 Math.round((255 - g) * p) + g,
                 Math.round((255 - b) * p) + b
                 );
-        hex = colutil.rgbToHex(grad);
+        hex = colutil.rgbToHex_(grad);
         grads.push(hex);
     }
 
@@ -53,11 +53,11 @@ colutil.getGithubGradation = function(startRgb) {
     return rev;
 }
 
-colutil.rgbToHex = function(rgb) {
-    return "#" + colutil.decToHex(rgb.r) + colutil.decToHex(rgb.g) + colutil.decToHex(rgb.b);
+colutil.rgbToHex_ = function(rgb) {
+    return "#" + colutil.decToHex_(rgb.r) + colutil.decToHex_(rgb.g) + colutil.decToHex_(rgb.b);
 }
 
-colutil.decToHex = function(dec) {
+colutil.decToHex_ = function(dec) {
     var hex = dec.toString(16);
     return hex.length === 1 ? "0" + hex : hex;
 }
