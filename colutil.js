@@ -25,28 +25,25 @@ colutil.rgb = function(r, g, b) {
     this.b = b;
 }
 
-colutil.getGithubGradation = function(baseRgb) {
+colutil.getGithubGradation = function(startRgb) {
     var grads = [];
 
-    var r = baseRgb.r;
-    var g = baseRgb.g;
-    var b = baseRgb.b;
+    var r = startRgb.r;
+    var g = startRgb.g;
+    var b = startRgb.b;
 
-    var grad = new colutil.rgb(r, g, b)
-    var hex = colutil.rgbToHex(grad);
-    grads.push(hex);
-    grad = new colutil.rgb(r += 38, g += 59, b += 29);
-    hex = colutil.rgbToHex(grad);
-    grads.push(hex);
-    grad = new colutil.rgb(r += 72, g += 35, b += 37);
-    hex = colutil.rgbToHex(grad);
-    grads.push(hex);
-    grad = new colutil.rgb(r += 74, g += 32, b += 32);
-    hex = colutil.rgbToHex(grad);
-    grads.push(hex);
-    grad = new colutil.rgb(238, 238, 238);
-    hex = colutil.rgbToHex(grad);
-    grads.push(hex);
+    var grad;
+    var hex;
+    for (var i = 0; i <= 4; i++) {
+        var p = i / 5;
+        grad = new colutil.rgb(
+                Math.round((255 - r) * p) + r,
+                Math.round((255 - g) * p) + g,
+                Math.round((255 - b) * p) + b
+                );
+        hex = colutil.rgbToHex(grad);
+        grads.push(hex);
+    }
 
     var rev = [];
     for (var i = grads.length - 1; i >= 0 ; i--) {
@@ -63,13 +60,4 @@ colutil.componentToHex = function(c) {
 
 colutil.rgbToHex = function(rgb) {
     return "#" + colutil.componentToHex(rgb.r) + colutil.componentToHex(rgb.g) + colutil.componentToHex(rgb.b);
-}
-
-colutil.hexToRgb = function(hex) {
-    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
-    } : null;
 }

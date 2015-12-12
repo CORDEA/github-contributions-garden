@@ -29,18 +29,32 @@ content.listenRequests_ = function () {
     });
 }
 
-content.checkColor_ = function() {
-    var bases = [];
+content.getLegend_ = function() {
     var container = document.getElementById("contributions-calendar");
     var legout = container.getElementsByClassName("contrib-legend")[0];
     var legend = legout.getElementsByClassName("legend")[0];
     var colors = legend.getElementsByTagName("li");
+    return colors;
+}
+
+content.checkColor_ = function() {
+    var bases = [];
     var regex = new RegExp("#[A-Za-z0-9]{3,6}");
+    var colors = content.getLegend_();
     for (var i = 0; i < colors.length; i++) {
         var colstyle = colors[i].getAttribute("style");
         bases.push(regex.exec(colstyle));
     }
     return bases;
+}
+
+content.changeLegendColor_ = function(grads) {
+    var colors = content.getLegend_();
+    for (var i = 0; i < colors.length; i++) {
+        if (i !== 0) {
+            colors[i].setAttribute("style", "background-color: " + grads[i]);
+        }
+    }
 }
 
 content.searchHtml_ = function(bases, grads) {
@@ -66,9 +80,8 @@ content.searchHtml_ = function(bases, grads) {
 
 content.initialize_ = function () {
     var bases = content.checkColor_();
-    console.log(bases);
-    var grads = colutil.getGithubGradation(new colutil.rgb(0, 0, 64));
-    console.log(grads);
+    var grads = colutil.getGithubGradation(new colutil.rgb(17, 85, 204));
+    content.changeLegendColor_(grads);
     content.searchHtml_(bases, grads);
 }
 
