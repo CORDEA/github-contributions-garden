@@ -24,9 +24,9 @@ options.restore = function() {
 
     chrome.storage.sync.get(c.getDefaultColor()
             , function(items) {
-                document.getElementById("box-r").value = items[c.red_key];
-                document.getElementById("box-g").value = items[c.green_key];
-                document.getElementById("box-b").value = items[c.blue_key];
+                document.getElementById("box-r").value = items[c.RED_KEY];
+                document.getElementById("box-g").value = items[c.GREEN_KEY];
+                document.getElementById("box-b").value = items[c.BLUE_KEY];
             });
 }
 
@@ -47,9 +47,9 @@ options.save = function() {
     var c = constants;
 
     var set = {};
-    set[c.red_key] = r;
-    set[c.green_key] = g;
-    set[c.blue_key] = b;
+    set[c.RED_KEY] = r;
+    set[c.GREEN_KEY] = g;
+    set[c.BLUE_KEY] = b;
 
     chrome.storage.sync.set(set
             , function() {

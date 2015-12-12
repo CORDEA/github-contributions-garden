@@ -85,9 +85,9 @@ content.initialize_ = function () {
     chrome.storage.sync.get(c.getDefaultColor()
             , function(items) {
                 var grads = colutil.getGithubGradation(new colutil.rgb(
-                            items[c.red_key],
-                            items[c.green_key],
-                            items[c.blue_key]
+                            items[c.RED_KEY],
+                            items[c.GREEN_KEY],
+                            items[c.BLUE_KEY]
                             ));
                 content.changeLegendColor_(grads);
                 content.searchHtml_(bases, grads);

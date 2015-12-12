@@ -3,7 +3,7 @@
     "version": "1.0",
     "description": "Change the gradient color of GitHub Contributions.",
     "background": {
-        "scripts": ["background.js"],
+        "scripts": ["constants.js", "background.js"],
         "persistent": false
     },
     "content_scripts": [{

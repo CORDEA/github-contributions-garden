@@ -17,10 +17,6 @@
  * date  : 2015-12-04
  */
 
-var constants = {};
-
-constants.GITHUB_PROFILE_URL = "^https://github.com/\\w+$";
-
 var background = {};
 
 background.checkForValidUrl_ = function () {

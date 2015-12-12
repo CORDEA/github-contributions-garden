@@ -19,17 +19,19 @@
 
 var constants = {};
 
-constants.red_key = "storage_red";
+constants.GITHUB_PROFILE_URL = "^https://github.com/\\w+$";
 
-constants.green_key = "storage_green";
+constants.RED_KEY = "storage_red";
 
-constants.blue_key = "storage_blue";
+constants.GREEN_KEY = "storage_green";
+
+constants.BLUE_KEY = "storage_blue";
 
 constants.getDefaultColor = function() {
     var get = {};
-    get[constants.red_key] = 17;
-    get[constants.green_key] = 85;
-    get[constants.blue_key] = 204;
+    get[constants.RED_KEY] = 17;
+    get[constants.GREEN_KEY] = 85;
+    get[constants.BLUE_KEY] = 204;
     
     return get;
 }
